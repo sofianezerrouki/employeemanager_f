@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
   }
 
   public onEditEmloyee(employee:Employee): void {
-    document.getElementById('edit-employee-form').click();
+    document.getElementById('add-employee-form').click();
     this.emplService.updateEmployee(employee).subscribe(
       (response: Employee) => {
         console.log(response);
