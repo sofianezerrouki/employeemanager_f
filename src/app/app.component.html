@@ -94,7 +94,7 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Employee {{editEmployee?.name}}</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
          </div>
@@ -123,7 +123,7 @@
                   <input type="text" ngModel="{{editEmployee?.imgUrl}}" name="imageUrl" class="form-control" id="imageUrl" placeholder="Image URL">
                </div>
                <div class="modal-footer">
-                  <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                  <button type="button" id="" data-bs-dismiss="modal" class="btn btn-secondary">Close</button>
                   <button (click)="onEditEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
                </div>
             </form>
@@ -138,14 +138,14 @@
       <div class="modal-content">
          <div class="modal-header">
             <h5 class="modal-title" id="deleteModelLabel">Delete Employee</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
             </button>
          </div>
          <div class="modal-body">
             <p>Are you sure you want to delete employee {{deleteEmployee?.name}}?</p>
             <div class="modal-footer">
-               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
                <button (click)="onDeleteEmloyee(deleteEmployee?.id)" class="btn btn-danger" data-dismiss="modal">Yes</button>
             </div>
          </div>

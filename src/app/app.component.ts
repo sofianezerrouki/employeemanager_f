@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
     }
     if (mode === 'edit') {
       this.editEmployee = employee;
-      button.setAttribute('data-bs-target', '#editEmployeeModal');
+      button.setAttribute('data-bs-target', '#updateEmployeeModal');
     }
     if (mode === 'delete') {
       this.deleteEmployee = employee;
