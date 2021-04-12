@@ -36,6 +36,22 @@ export class AppComponent implements OnInit {
       }
     );
   }
+
+  public onEditEmloyee(employee:Employee): void {
+    document.getElementById('edit-employee-form').click();
+    this.emplService.updateEmployee(employee).subscribe(
+      (response: Employee) => {
+        console.log(response);
+        this.getEmployees();
+        
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+        
+      }
+    );
+  }
+
   public getEmployees():void{
      this.emplService.getEmployees().subscribe(
        (data:Employee[])=>{
@@ -47,8 +63,16 @@ export class AppComponent implements OnInit {
      )
   }
  
-   onDeleteEmployee(){  
-
+  public onDeleteEmployee(employeeId: number): void {
+    this.emplService.deleteEmployee(employeeId).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.getEmployees();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
   }
   public onOpenModal(employee: Employee, mode: string): void {
 
