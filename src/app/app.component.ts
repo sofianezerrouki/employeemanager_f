@@ -13,6 +13,8 @@ export class AppComponent implements OnInit {
   title = 'employeemanagerapp';
 
   public employees:Employee[];
+  public editEmployee: Employee;
+  public deleteEmployee: Employee;
 
   constructor(private emplService:EmployeeServiceService){
 
@@ -44,27 +46,31 @@ export class AppComponent implements OnInit {
        }
      )
   }
-  public onOpenModal(employee:Employee,mode:string):void{
-    console.log('onOpenModal() clicked!');
-    const container = document.getElementById("main-container");
-
-    const button = document.createElement("button");
-    button.type="button";
-    button.style.display="none";
-    if(mode === "add"){
-      button.setAttribute("data-target","#addEmployeeModal"); 
-    }
-    if(mode==="update"){
-      button.setAttribute("data-target","#updateEmployeeModal"); 
-    }
-    if(mode==="delete"){
-      button.setAttribute("data-target","#deleteEmployeeModal"); 
-    }
-    container.appendChild(button);
-    button.click(); 
-  }  
+ 
    onDeleteEmployee(){  
 
+  }
+  public onOpenModal(employee: Employee, mode: string): void {
+
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-bs-toggle', 'modal');
+    if (mode === 'add') {
+      button.setAttribute('data-bs-target', '#addEmployeeModal');
+    }
+    if (mode === 'edit') {
+      this.editEmployee = employee;
+      button.setAttribute('data-bs-target', '#editEmployeeModal');
+    }
+    if (mode === 'delete') {
+      this.deleteEmployee = employee;
+      button.setAttribute('data-bs-target', '#deleteEmployeeModal');
+    }
+    container.appendChild(button);
+    button.click();
   }
 }
 
