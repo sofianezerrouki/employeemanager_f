@@ -63,7 +63,7 @@ export class AppComponent implements OnInit {
      )
   }
  
-  public onDeleteEmployee(employeeId: number): void {
+  public onDeleteEmloyee(employeeId: number): void {
     this.emplService.deleteEmployee(employeeId).subscribe(
       (response: void) => {
         console.log(response);
@@ -73,6 +73,23 @@ export class AppComponent implements OnInit {
         alert(error.message);
       }
     );
+  }
+
+  public searchEmployees(key: string): void {
+    console.log(key);
+    const results: Employee[] = [];
+    for (const employee of this.employees) {
+      if (employee.name.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.email.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.phone.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || employee.jobTitle.toLowerCase().indexOf(key.toLowerCase()) !== -1) {
+        results.push(employee);
+      }
+    }
+    this.employees = results;
+    if (results.length === 0 || !key) {
+      this.getEmployees();
+    }
   }
   public onOpenModal(employee: Employee, mode: string): void {
 
